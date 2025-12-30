@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-import { hashPassword } from "../lib/hashPassword.js";
 const credentialSchema = new mongoose.Schema(
   {
     login: {
@@ -10,9 +9,9 @@ const credentialSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    user: {
+    page: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "User",
+      ref: "Page",
     },
   },
   {

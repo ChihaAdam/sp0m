@@ -11,7 +11,7 @@ export const signUp = async (req, res, next) => {
   try {
     const { username, email, password } = req.body;
     const hashedPassword = await hashPassword(password);
-    await dbConnection();
+    await connectToDB();
     const user = await User.create({
       username: username,
       email: email,
@@ -32,7 +32,7 @@ export const signUp = async (req, res, next) => {
       })
       .json({
         message: "User created successfully",
-        token: `Bearer ${accessToken}`,
+        accessToken: `Bearer ${accessToken}`,
       });
   } catch (err) {
     next(err);
@@ -47,13 +47,13 @@ export const signIn = async (req, res, next) => {
     const user = await User.findOne({ username });
     if (!user) {
       const err = new Error("username or password is incorrect");
-      err.name = "LoginError";
+      err.name = "loginError";
       throw err;
     }
     const isPasswordValid = await comparePassword(password, user.password);
     if (!isPasswordValid) {
       const err = new Error("username or password is incorrect");
-      err.name = "LoginError";
+      err.name = "loginError";
       throw err;
     }
     const accessToken = generateAccessToken({
@@ -71,7 +71,7 @@ export const signIn = async (req, res, next) => {
       })
       .json({
         message: "User logged in successfully",
-        token: `Bearer ${accessToken}`,
+        accessToken: `Bearer ${accessToken}`,
       });
   } catch (err) {
     next(err);

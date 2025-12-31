@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "roboto";
+  src: url("./fonts/Roboto-VariableFont_wdth,wght.ttf");
+}
+body {
+  font-family: "roboto";
+}
+@layer base {
+  li {
+    @apply cursor-pointer transition-all duration-300 ease-in-out;
+  }
+  button {
+    @apply cursor-pointer transition-all duration-300 ease-in-out;
+  }
+}
+
+@keyframes animate-bubble-1 {
+  0% {
+    transform: translateX(0);
+    z-index: -1;
+  }
+  50% {
+    transform: translateX(100px);
+    z-index: -2;
+  }
+  100% {
+    transform: translateX(0);
+    z-index: -1;
+  }
+}
+@keyframes animate-bubble-2 {
+  0% {
+    transform: translateX(0);
+    z-index: -2;
+  }
+  50% {
+    transform: translateX(-100px);
+    z-index: -1;
+  }
+  100% {
+    transform: translateX(0);
+    z-index: -2;
+  }
+}
+@layer utilities {
+  .link {
+    @apply border-b-2 border-transparent hover:border-blue-300 hover:text-blue-300;
+  }
+  .animate-bubble-1 {
+    animation: animate-bubble-1 15s ease-in-out infinite;
+  }
+  .animate-bubble-2 {
+    animation: animate-bubble-2 15s ease-in-out infinite;
+  }
+}

@@ -18,6 +18,22 @@ const SERVER_ERRORS = {
     message: "Unauthorized",
     status: 401,
   },
+  JsonWebTokenError: {
+    message: "Unauthorized",
+    status: 401,
+  },
+  TokenExpiredError: {
+    message: "Unauthorized",
+    status: 401,
+  },
+  NotBeforeError: {
+    message: "Unauthorized",
+    status: 401,
+  },
+  PageNotFoundError: {
+    message: "Page not found",
+    status: 404,
+  },
 };
 
 export const errorHandlingMiddleware = (err, req, res, next) => {

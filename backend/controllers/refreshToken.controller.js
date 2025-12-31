@@ -5,7 +5,7 @@ export const refreshToken = async (req, res, next) => {
     const { refreshToken } = req.body;
     if (!refreshToken) {
       const err = new Error("Unauthorized");
-      err.name = "UnauthorizedError";
+      err.name = "unauthorizedError";
       throw err;
     }
     const user = verifyRefreshToken(refreshToken);

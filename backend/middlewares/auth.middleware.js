@@ -2,7 +2,7 @@ import { verifyAccessToken } from "../lib/tokenUtils.js";
 
 export const authMiddleware = (req, res, next) => {
   try {
-    const token = req.cookies.refreshToken;
+    const token = req.headers.authorization.split(" ")[1];
     if (!token) {
       const err = new Error("Unauthorized");
       err.name = "unauthorizedError";

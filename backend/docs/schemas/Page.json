@@ -1,0 +1,32 @@
+{
+  "type": "object",
+  "properties": {
+    "_id": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "facebook",
+        "instagram",
+        "google",
+        "other"
+      ]
+    },
+    "author": {
+      "type": "string",
+      "description": "User ID of the author"
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

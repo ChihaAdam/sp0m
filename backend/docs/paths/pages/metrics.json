@@ -1,0 +1,64 @@
+{
+  "/pages/metrics": {
+    "get": {
+      "summary": "Get user metrics",
+      "tags": ["Pages"],
+      "security": [
+        {
+          "bearerAuth": []
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Metrics retrieved successfully",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "message": {
+                    "type": "string"
+                  },
+                  "metrics": {
+                    "type": "object",
+                    "properties": {
+                      "numberOfPages": {
+                        "type": "integer"
+                      },
+                      "numberOfVictims": {
+                        "type": "integer"
+                      },
+                      "avgVictims": {
+                        "type": "number"
+                      },
+                      "maxVictims": {
+                        "type": "object"
+                      },
+                      "minVictims": {
+                        "type": "object"
+                      },
+                      "pagesMetrics": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "page": {
+                              "$ref": "#/components/schemas/Page"
+                            },
+                            "victims": {
+                              "type": "integer"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

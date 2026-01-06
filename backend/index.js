@@ -1,19 +1,30 @@
 import express from "express";
 import chalk from "chalk";
+import cors from "cors";
 import { connectToDB } from "./config/dbConnection.js";
 import fakeLoginRoute from "./routes/fakelogin.route.js";
 import userRoute from "./routes/user.route.js";
 import pagesRoute from "./routes/pages.route.js";
+import refreshRoute from "./routes/refresh.js";
 import { errorHandlingMiddleware } from "./middlewares/errorHandling.middleware.js";
+import cookieParser from "cookie-parser";
+import morgan from "morgan";
+import swaggerUi from "swagger-ui-express";
+import { swaggerDocs } from "./docs/doc.js";
+import { PORT } from "../constants.mjs";
 const app = express();
-
+app.use(cors({ origin: "http://localhost:5173", credentials: true }));
 app.use(express.json());
+app.use(cookieParser());
+app.use(morgan("dev"));
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs()));
 app.use("/api/v1/fakeLogin", fakeLoginRoute);
-app.use("/api/v1/user", userRoute);
+app.use("/api/v1/users", userRoute);
 app.use("/api/v1/pages", pagesRoute);
+app.use("/api/v1/refresh", refreshRoute);
 app.use(errorHandlingMiddleware);
-app.listen(3000, async () => {
-  console.log(chalk.green.bold("Server running on port 3000"));
+app.listen(PORT, async () => {
+  console.log(chalk.green.bold(`Server running on port ${PORT}`));
   await connectToDB();
   console.log(chalk.cyan.bold("Connected to MongoDB"));
 });

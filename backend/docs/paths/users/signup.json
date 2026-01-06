@@ -1,0 +1,70 @@
+{
+  "/users/signup": {
+    "post": {
+      "summary": "Verify registration code and create user",
+      "tags": [
+        "Users"
+      ],
+      "parameters": [
+        {
+          "in": "query",
+          "name": "key",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "description": "Verification key returned from /register"
+        }
+      ],
+      "requestBody": {
+        "required": true,
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "required": [
+                "code"
+              ],
+              "properties": {
+                "code": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "responses": {
+        "201": {
+          "description": "User created successfully",
+          "headers": {
+            "Set-Cookie": {
+              "schema": {
+                "type": "string",
+                "description": "refreshToken cookie"
+              }
+            }
+          },
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "message": {
+                    "type": "string"
+                  },
+                  "accessToken": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "400": {
+          "description": "Invalid code or key"
+        }
+      }
+    }
+  }
+}

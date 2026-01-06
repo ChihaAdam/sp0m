@@ -1,0 +1,27 @@
+{
+  "/users/signout": {
+    "get": {
+      "summary": "Signout user",
+      "tags": [
+        "Users"
+      ],
+      "responses": {
+        "200": {
+          "description": "Logged out successfully",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "message": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "/pages/instagram": {
+    "get": {
+      "summary": "Get all instagram pages",
+      "tags": [
+        "Pages"
+      ],
+      "security": [
+        {
+          "bearerAuth": []
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "List of instagram pages",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Page"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

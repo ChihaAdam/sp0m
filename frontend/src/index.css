@@ -1,11 +1,9 @@
 @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
 
-@font-face {
-  font-family: "roboto";
-  src: url("./fonts/Roboto-VariableFont_wdth,wght.ttf");
-}
 body {
-  font-family: "roboto";
+  font-family: "Arial", sans-serif;
+  letter-spacing: 1px;
 }
 @layer base {
   li {
@@ -13,6 +11,16 @@ body {
   }
   button {
     @apply cursor-pointer transition-all duration-300 ease-in-out;
+  }
+  *:not(.no-transition) {
+    @apply transition-all duration-300 ease-in-out;
+  }
+  table,
+  thead,
+  tr,
+  th,
+  td {
+    border: 1px solid black;
   }
 }
 
@@ -49,9 +57,24 @@ body {
     @apply border-b-2 border-transparent hover:border-blue-300 hover:text-blue-300;
   }
   .animate-bubble-1 {
-    animation: animate-bubble-1 15s ease-in-out infinite;
+    animation: animate-bubble-1 10s ease-in-out infinite;
   }
   .animate-bubble-2 {
-    animation: animate-bubble-2 15s ease-in-out infinite;
+    animation: animate-bubble-2 10s ease-in-out infinite;
   }
+  .bg-gradiant {
+    @apply bg-gradient-to-r from-pink-700 to-purple-700;
+  }
+  .bg-gradiant-blur {
+    @apply bg-gradient-to-r from-pink-700/50 to-purple-700/50 backdrop-blur-sm;
+  }
+  .contact {
+    @apply flex items-center gap-2 text-lg px-6 py-2 rounded-lg border border-gray-300 dark:border-gray-700 hover:shadow-lg transition-shadow;
+  }
+  .font-helvetica {
+    font-family: "Helvetica", sans-serif;
+  }
+}
+html {
+  scroll-behavior: smooth;
 }

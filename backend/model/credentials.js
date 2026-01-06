@@ -13,6 +13,10 @@ const credentialSchema = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: "Page",
     },
+    hunter: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+    },
   },
   {
     timestamps: true,

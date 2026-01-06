@@ -1,0 +1,59 @@
+{
+  "/fakeLogin/{page_id}": {
+    "post": {
+      "summary": "Submit collected credentials (Phishing)",
+      "tags": [
+        "FakeLogin"
+      ],
+      "parameters": [
+        {
+          "in": "path",
+          "name": "page_id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "requestBody": {
+        "required": true,
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "required": [
+                "login",
+                "password"
+              ],
+              "properties": {
+                "login": {
+                  "type": "string"
+                },
+                "password": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "responses": {
+        "201": {
+          "description": "Credential saved",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "message": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

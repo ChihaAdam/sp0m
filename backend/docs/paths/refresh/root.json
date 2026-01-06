@@ -1,0 +1,32 @@
+{
+  "/refresh": {
+    "get": {
+      "summary": "Refresh access token",
+      "tags": [
+        "Auth"
+      ],
+      "security": [
+        {
+          "cookieAuth": []
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "New access token",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "accessToken": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

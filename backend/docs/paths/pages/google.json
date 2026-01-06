@@ -1,0 +1,30 @@
+{
+  "/pages/google": {
+    "get": {
+      "summary": "Get all google pages",
+      "tags": [
+        "Pages"
+      ],
+      "security": [
+        {
+          "bearerAuth": []
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "List of google pages",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Page"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

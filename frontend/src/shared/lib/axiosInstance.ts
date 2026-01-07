@@ -1,7 +1,8 @@
 import axios from "axios";
 
+const API_URL = `${import.meta.env.VITE_API_URL}/api/v1`;
 export const api = axios.create({
-  baseURL: "http://localhost:3000/api/v1",
+  baseURL: API_URL,
   timeout: 15000,
   headers: {
     "Content-Type": "application/json",
@@ -9,7 +10,7 @@ export const api = axios.create({
 });
 
 export const apiWithCredentials = axios.create({
-  baseURL: "http://localhost:3000/api/v1",
+  baseURL: API_URL,
   timeout: 15000,
   withCredentials: true,
   headers: {

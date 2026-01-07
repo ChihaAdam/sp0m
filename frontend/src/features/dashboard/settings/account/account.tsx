@@ -12,7 +12,7 @@ function Account() {
       <div className="flex flex-col gap-2">
         <ChangeUsername />
         <ChangePassword />
-        <div className="flex gap-2 w-1/2 mt-4">
+        <div className="flex gap-2 w-1/2 max-md:flex-col max-md:w-full mt-4">
           <Signout />
           <Delete />
         </div>

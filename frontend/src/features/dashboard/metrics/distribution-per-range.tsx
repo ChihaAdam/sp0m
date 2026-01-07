@@ -36,7 +36,6 @@ export default function DistributionPerRange() {
         distribution per range
       </h3>
       <BarChart
-        width={600}
         height={300}
         data={pageMetrics}
         margin={{
@@ -45,6 +44,7 @@ export default function DistributionPerRange() {
           left: 20,
           bottom: 5,
         }}
+        responsive
       >
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="range" />

@@ -1,11 +1,11 @@
 import { useForm, type SubmitHandler } from "react-hook-form";
 import * as z from "zod";
 import { apiWithCredentials } from "../../../shared/lib/axiosInstance";
-import { AlertCircleIcon } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useAuthStore } from "../auth-provider";
 import { REGEX_EMAIL } from "../../../../../constants.mjs";
+import Error from "../error";
 const schema = z.object({
   email: z.string().regex(REGEX_EMAIL),
   password: z.string().min(6),
@@ -44,12 +44,7 @@ function Login() {
         {...register("email", { required: "please enter a valid email" })}
         className="w-full p-2 border border-gray-300 rounded"
       />
-      {errors.email && (
-        <div className="text-red-500 font-semibold flex items-center gap-2">
-          <AlertCircleIcon />
-          {errors.email.message}
-        </div>
-      )}
+      <Error message={errors?.email?.message} />
       <label htmlFor="password">Password: </label>
       <input
         type="password"
@@ -57,12 +52,7 @@ function Login() {
         {...register("password", { required: "Password is required" })}
         className="w-full p-2 border border-gray-300 rounded"
       />
-      {errors.password && (
-        <div className="text-red-500 font-semibold flex items-center gap-2">
-          <AlertCircleIcon />
-          {errors.password.message}
-        </div>
-      )}
+      <Error message={errors?.password?.message} />
       <button
         type="submit"
         className="bg-gradiant text-white text-xl font-bold p-2 rounded-lg disabled:contrast-50 disabled:cursor-not-allowed"
@@ -76,12 +66,7 @@ function Login() {
       >
         Don't have an account? join us!
       </Link>
-      {serverError && (
-        <div className="text-red-500 flex items-center gap-2 border border-red-500 p-2 rounded">
-          <AlertCircleIcon />
-          {serverError}
-        </div>
-      )}
+      <Error message={serverError} />
     </form>
   );
 }

@@ -24,7 +24,7 @@ function PageVisualisation() {
           {page?.title}
         </span>
       </h2>
-      <div className="flex gap-2 w-full">
+      <div className="flex max-md:flex-col gap-2 w-full">
         <UpdatePage />
         <DeletePage />
       </div>
@@ -34,7 +34,7 @@ function PageVisualisation() {
           <span className="font-bold">URL:</span>{" "}
           <Link
             to={pageURL}
-            className="underline text-blue-800 hover:text-blue-600 font-semibold"
+            className="underline text-blue-800 hover:text-blue-600 font-semibold max-md:w-fit break-all"
           >
             {pageURL}
           </Link>

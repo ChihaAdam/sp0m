@@ -7,7 +7,7 @@ function CreatePageMainMenu() {
       <h2 className="text-2xl font-bold bg-gradiant text-transparent bg-clip-text">
         available networks
       </h2>
-      <div className="flex gap-4 justify-around">
+      <div className="flex max-md:flex-col gap-4 justify-around">
         <InstagramCard />
         <FacebookCard />
         <GoogleCard />

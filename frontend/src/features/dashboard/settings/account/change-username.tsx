@@ -16,7 +16,7 @@ function ChangeUsername() {
     setUsername("");
   };
   return (
-    <div className="flex flex-col gap-2 w-1/2">
+    <div className="flex flex-col gap-2 w-1/2 max-md:w-full">
       <h4>Change Username:</h4>
       <div className="flex flex-col gap-2">
         <input

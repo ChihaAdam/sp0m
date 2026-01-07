@@ -6,7 +6,7 @@ function Summary() {
       <h3 className="text-center my-2 text-xl font-semibold bg-gradiant text-transparent bg-clip-text">
         Summary
       </h3>
-      <div className="w-full flex justify-between items-center">
+      <div className="w-full flex justify-between items-center max-md:flex-col gap-2">
         <span className="font-semibold shadow-sm p-2">
           max victims in page: {data?.maxVictims?.victims}
         </span>

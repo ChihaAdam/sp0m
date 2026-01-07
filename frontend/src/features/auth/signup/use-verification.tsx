@@ -20,7 +20,6 @@ function useVerification() {
       navigate("/admin");
     } catch (error: any) {
       setError(error?.response?.data?.message || "Something went wrong");
-      console.error(error);
     } finally {
       setLoading(false);
     }

@@ -1,25 +1,16 @@
 import RoutingProvider from "./services/routing/routes.tsx";
 import QueryProvider from "./services/query/query.tsx";
-import { ToastContainer } from "react-toastify";
 import { AuthProvider } from "./features/auth/auth-provider.tsx";
-
+import DarkmodeProvider from "./features/darkmode/useDarkmode.tsx";
+import ToastContainer from "./services/toast/toast-container.tsx";
 function App() {
   return (
     <AuthProvider>
       <QueryProvider>
-        <RoutingProvider />
-        <ToastContainer
-          position="bottom-right"
-          autoClose={5000}
-          hideProgressBar={false}
-          newestOnTop={true}
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-          limit={5}
-        />
+        <DarkmodeProvider>
+          <RoutingProvider />
+          <ToastContainer />
+        </DarkmodeProvider>
       </QueryProvider>
     </AuthProvider>
   );

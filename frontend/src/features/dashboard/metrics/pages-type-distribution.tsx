@@ -58,7 +58,7 @@ export default function PagesTypeDistribution() {
       <h3 className="text-center my-2 text-xl font-semibold bg-gradiant text-transparent bg-clip-text">
         pages type distribution
       </h3>
-      <PieChart width={300} height={300} data={pageMetrics}>
+      <PieChart height={300} data={pageMetrics} responsive>
         <Pie
           dataKey="value"
           nameKey="type"

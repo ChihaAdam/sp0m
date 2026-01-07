@@ -5,8 +5,6 @@ import RefreshMetrics from "./refresh-metrics";
 import Summary from "./summary";
 const DistributionPerRange = lazy(() => import("./distribution-per-range"));
 const PagesTypeDistribution = lazy(() => import("./pages-type-distribution"));
-const ScatterForPages = lazy(() => import("./scatter-for-pages"));
-
 function Metrics() {
   const { isLoading, error } = useMetrics();
   if (isLoading) return <Loading />;
@@ -25,7 +23,6 @@ function Metrics() {
         <Suspense fallback={<LoadingSub />}>
           <DistributionPerRange />
           <PagesTypeDistribution />
-          <ScatterForPages />
         </Suspense>
       </div>
     </div>

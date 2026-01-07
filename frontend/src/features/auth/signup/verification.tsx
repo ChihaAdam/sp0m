@@ -1,7 +1,7 @@
 import { useState } from "react";
 import OTP from "../../../shared/components/ui/otp.tsx";
 import useVerification from "./use-verification";
-import { AlertCircle } from "lucide-react";
+import Error from "../error";
 
 function Verification() {
   const [otp, setOtp] = useState<string>("");
@@ -22,12 +22,7 @@ function Verification() {
       >
         {loading ? "Verifying..." : "Verify"}
       </button>
-      {error && (
-        <div className="flex items-center gap-2 text-red-500 border-red-500 border p-2 rounded-lg w-full">
-          <AlertCircle className="inline" />
-          <p>{error}</p>
-        </div>
-      )}
+      <Error message={error} />
     </main>
   );
 }

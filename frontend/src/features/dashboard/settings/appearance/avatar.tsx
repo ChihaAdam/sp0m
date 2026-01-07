@@ -23,7 +23,7 @@ function Avatar() {
   return (
     <div>
       <h4 className="text-md mb-2">Avatar: </h4>
-      <div className="grid grid-cols-4 gap-2 w-1/2">
+      <div className="grid grid-cols-4 max-md:grid-cols-2 gap-2 w-1/2 max-md:w-full">
         {avatars.map((avatar) => (
           <img
             key={avatar.name}

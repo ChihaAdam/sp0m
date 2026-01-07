@@ -27,9 +27,9 @@ function ChangePassword() {
     }
   };
   return (
-    <div className="flex flex-col gap-2 w-1/2">
+    <div className="flex flex-col gap-2 w-1/2 max-md:w-full">
       <h4 className="font-semibold">Change Password: </h4>
-      <div className="flex gap-2 justify-between">
+      <div className="flex gap-2 justify-between max-md:flex-col">
         <input
           type="password"
           placeholder="New Password"

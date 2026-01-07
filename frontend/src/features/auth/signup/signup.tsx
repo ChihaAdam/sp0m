@@ -1,10 +1,10 @@
 import { useForm, type SubmitHandler } from "react-hook-form";
 import * as z from "zod";
 import { apiWithCredentials } from "../../../shared/lib/axiosInstance";
-import { AlertCircleIcon } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { REGEX_EMAIL } from "../../../../../constants.mjs";
+import Error from "../error";
 const schema = z.object({
   username: z.string().min(4).max(16),
   email: z.string().regex(REGEX_EMAIL),
@@ -26,7 +26,6 @@ function Signup() {
       const response = await apiWithCredentials.post("/users/register", data);
       const key = response.data.verificationKey;
       navigate(`/verification?key=${key}`);
-      console.log(response.data);
     } catch (error: any) {
       setServerError(error?.response?.data?.message || "Something went wrong");
     }
@@ -46,12 +45,7 @@ function Signup() {
         {...register("username", { required: "Username is required" })}
         className="w-full p-2 border border-gray-300 rounded"
       />
-      {errors.username && (
-        <div className="text-red-500 font-semibold flex items-center gap-2">
-          <AlertCircleIcon />
-          {errors.username.message}
-        </div>
-      )}
+      <Error message={errors?.username?.message} />
       <label htmlFor="email">Email:</label>
       <input
         type="email"
@@ -59,12 +53,7 @@ function Signup() {
         {...register("email", { required: "Email is required" })}
         className="w-full p-2 border border-gray-300 rounded"
       />
-      {errors.email && (
-        <div className="text-red-500 font-semibold flex items-center gap-2">
-          <AlertCircleIcon />
-          {errors.email.message}
-        </div>
-      )}
+      <Error message={errors?.email?.message} />
       <label htmlFor="password">Password: </label>
       <input
         type="password"
@@ -72,12 +61,7 @@ function Signup() {
         {...register("password", { required: "Password is required" })}
         className="w-full p-2 border border-gray-300 rounded"
       />
-      {errors.password && (
-        <div className="text-red-500 font-semibold flex items-center gap-2">
-          <AlertCircleIcon />
-          {errors.password.message}
-        </div>
-      )}
+      <Error message={errors?.password?.message} />
       <button
         type="submit"
         className="bg-gradiant text-white text-xl font-bold p-2 rounded-lg disabled:contrast-50 disabled:cursor-not-allowed"
@@ -91,12 +75,7 @@ function Signup() {
       >
         Already have an account? login!
       </Link>
-      {serverError && (
-        <div className="text-red-500 flex items-center gap-2 border border-red-500 p-2 rounded">
-          <AlertCircleIcon />
-          {serverError}
-        </div>
-      )}
+      <Error message={serverError} />
     </form>
   );
 }

@@ -1,6 +1,10 @@
 import Return from "./return";
 
-function RouteError({ error }: { error: any }) {
+type RouteErrorProps = {
+  error: any;
+};
+
+function RouteError({ error }: Readonly<RouteErrorProps>) {
   const status = error.status;
   if (status === 404) {
     return (

@@ -7,7 +7,7 @@ import type { AxiosError } from "axios";
 type UsePageDeleteProps = {
   id: string;
 };
-export function usePageDelete({ id }: UsePageDeleteProps) {
+export function usePageDelete({ id }: Readonly<UsePageDeleteProps>) {
   const navigate = useNavigate();
   const queryClient = useQueryClient();
   const mutation = useMutation<any, AxiosError>({

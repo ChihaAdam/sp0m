@@ -7,7 +7,7 @@ type VictimsProps = {
   victims: Victim[];
 };
 
-function Victims({ victims }: VictimsProps) {
+function Victims({ victims }: Readonly<VictimsProps>) {
   return (
     <table className="w-full border-collapse border border-black/20 dark:border-white/20 text-start">
       <thead>

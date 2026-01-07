@@ -9,13 +9,13 @@ interface SecondProps {
   onPasswordSubmit: () => void;
 }
 
-const Second: React.FC<SecondProps> = ({
+const Second = ({
   email = "user@example.com",
   password,
   onBack,
   onPasswordChange,
   onPasswordSubmit,
-}) => {
+}: Readonly<SecondProps>) => {
   const [showPassword, setShowPassword] = useState(false);
 
   return (

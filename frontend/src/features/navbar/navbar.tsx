@@ -1,6 +1,10 @@
 import { useNavigate } from "react-router-dom";
 
-function Nav({ children }: { children?: React.ReactNode }) {
+type NavProps = {
+  children?: React.ReactNode;
+};
+
+function Nav({ children }: Readonly<NavProps>) {
   const navigate = useNavigate();
   return (
     <header className="sticky top-0 z-40 flex justify-between items-center text-white p-4 bg-gradiant-blur">

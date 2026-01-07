@@ -1,10 +1,10 @@
-interface FirstProps {
+type FirstProps = {
   onNext: () => void;
   onEmailChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   email: string;
-}
+};
 
-const First: React.FC<FirstProps> = ({ onNext, onEmailChange, email }) => {
+const First = ({ onNext, onEmailChange, email }: Readonly<FirstProps>) => {
   const handleSubmit = () => {
     if (email.trim()) onNext();
   };

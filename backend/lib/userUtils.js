@@ -1,6 +1,6 @@
 import User from "../model/userModel.js";
 import { hashPassword, comparePassword } from "./hashPassword.js";
-import crypto from "crypto";
+import crypto from "node:crypto";
 import { redisClient } from "../config/redisClient.js";
 import {
   generateAccessToken,

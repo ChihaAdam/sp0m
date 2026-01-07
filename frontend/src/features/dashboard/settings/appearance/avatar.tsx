@@ -25,18 +25,18 @@ function Avatar() {
       <h4 className="text-md mb-2">Avatar: </h4>
       <div className="grid grid-cols-4 max-md:grid-cols-2 gap-2 w-1/2 max-md:w-full">
         {avatars.map((avatar) => (
-          <img
+          <button
             key={avatar.name}
-            src={avatar.url}
-            alt={avatar.name}
-            role="button"
-            className={`w-16 h-16 border object-cover bg-black/20 rounded-full cursor-pointer hover:scale-110 transition-all duration-300 ${
-              currentAvatarNumber === Number(avatar.name)
-                ? "scale-110  border-black dark:border-white"
-                : "border-transparent"
-            }`}
+            className={`w-16 h-16 border bg-black/20 rounded-full 
+              cursor-pointer hover:scale-110 transition-all duration-300 ${
+                currentAvatarNumber === Number(avatar.name)
+                  ? "scale-110  border-black dark:border-white"
+                  : "border-transparent"
+              }`}
             onClick={() => handleAvatarChange(avatar.name)}
-          />
+          >
+            <img src={avatar.url} alt="avatar" />
+          </button>
         ))}
       </div>
     </div>

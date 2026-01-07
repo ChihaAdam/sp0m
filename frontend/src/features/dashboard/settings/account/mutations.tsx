@@ -1,7 +1,6 @@
 import { api, apiWithCredentials } from "../../../../shared/lib/axiosInstance";
 import { useAuthStore } from "../../../../features/auth/auth-provider";
-import { useMutation } from "@tanstack/react-query";
-import { useQueryClient } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { toast } from "react-toastify";
 export function useSignout() {
   const { setAccessToken } = useAuthStore();

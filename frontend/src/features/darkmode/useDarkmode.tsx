@@ -5,14 +5,15 @@ type darkmodeContextType = {
   isDarkMode: boolean;
   toggleDarkmode: () => void;
 };
+type darkmodeProviderProps = {
+  children: React.ReactNode;
+};
 
 const darkmodeContext = createContext<darkmodeContextType | null>(null);
 
 export default function DarkmodeProvider({
   children,
-}: {
-  children: React.ReactNode;
-}) {
+}: Readonly<darkmodeProviderProps>) {
   const [isDarkMode, setIsDarkMode] = useLocalStorage("darkmode", false);
   const toggleDarkmode = () => {
     setIsDarkMode(!isDarkMode);

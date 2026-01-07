@@ -7,7 +7,7 @@ function useVerification() {
   const { setAccessToken } = useAuthStore();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-  const key = new URLSearchParams(window.location.search).get("key");
+  const key = new URLSearchParams(globalThis.location.search).get("key");
   const handleSubmit = async (otp: string) => {
     const code = Number(otp);
     try {

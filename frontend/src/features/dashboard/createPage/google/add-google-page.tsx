@@ -6,7 +6,7 @@ type AddGooglePageProps = {
   setIsOpen: (isOpen: boolean) => void;
 };
 
-function AddGooglePage({ isOpen, setIsOpen }: AddGooglePageProps) {
+function AddGooglePage({ isOpen, setIsOpen }: Readonly<AddGooglePageProps>) {
   const [title, setTitle] = useState("");
   const disabled = !title.trim();
   const addPage = useAddPage();

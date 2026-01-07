@@ -6,7 +6,10 @@ type AddInstagramPageProps = {
   setIsOpen: (isOpen: boolean) => void;
 };
 
-function AddInstagramPage({ isOpen, setIsOpen }: AddInstagramPageProps) {
+function AddInstagramPage({
+  isOpen,
+  setIsOpen,
+}: Readonly<AddInstagramPageProps>) {
   const [title, setTitle] = useState("");
   const disabled = !title.trim();
   const addPage = useAddPage();

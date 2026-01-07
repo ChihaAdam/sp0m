@@ -2,8 +2,8 @@ import { useParams } from "react-router-dom";
 import { api } from "../../shared/lib/axiosInstance";
 
 export type Credentials = {
-  login: String;
-  password: String;
+  login: string;
+  password: string;
 };
 
 export function useFakeLogin() {

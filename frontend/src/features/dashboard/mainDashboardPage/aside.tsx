@@ -1,14 +1,17 @@
-import { LayoutDashboardIcon } from "lucide-react";
+import {
+  LayoutDashboardIcon,
+  SidebarCloseIcon,
+  SidebarIcon,
+} from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import Links from "./links";
-import { SidebarCloseIcon, SidebarIcon } from "lucide-react";
-function Aside({
-  active,
-  setActive,
-}: {
+
+type AsideProps = {
   active: boolean;
   setActive: (active: boolean) => void;
-}) {
+};
+
+function Aside({ active, setActive }: Readonly<AsideProps>) {
   return (
     <AnimatePresence>
       {active && (
@@ -25,7 +28,7 @@ function Aside({
               <h2>Dashboard</h2>
               <button
                 onClick={() => setActive(false)}
-                className="py-4 md:hidden  place-content-end "
+                className="py-4 md:hidden "
               >
                 {active ? <SidebarCloseIcon /> : <SidebarIcon />}
               </button>
@@ -37,4 +40,5 @@ function Aside({
     </AnimatePresence>
   );
 }
+
 export default Aside;

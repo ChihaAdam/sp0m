@@ -4,6 +4,7 @@ import {
   Cell,
   type PieLabelRenderProps,
   Tooltip,
+  ResponsiveContainer,
 } from "recharts";
 import { useMetrics } from "./useMetrics";
 const RADIAN = Math.PI / 180;
@@ -54,24 +55,26 @@ export default function PagesTypeDistribution() {
     }
   });
   return (
-    <div className="bg-white dark:bg-zinc-800 rounded shadow-lg p-4 box-content">
+    <div className="bg-white dark:bg-zinc-800 rounded shadow-lg p-4 box-content w-1/3 max-md:w-full flex flex-col items-center justify-center">
       <h3 className="text-center my-2 text-xl font-semibold bg-gradiant text-transparent bg-clip-text">
         pages type distribution
       </h3>
-      <PieChart height={300} data={pageMetrics} responsive>
-        <Pie
-          dataKey="value"
-          nameKey="type"
-          data={pageMetrics}
-          labelLine={false}
-          label={renderCustomizedLabel}
-        >
-          {pageMetrics.map((page: any) => (
-            <Cell key={`cell-${page.type}`} fill={page.color} />
-          ))}
-        </Pie>
-        <Tooltip />
-      </PieChart>
+      <ResponsiveContainer width="100%" aspect={1}>
+        <PieChart data={pageMetrics} responsive>
+          <Pie
+            dataKey="value"
+            nameKey="type"
+            data={pageMetrics}
+            labelLine={false}
+            label={renderCustomizedLabel}
+          >
+            {pageMetrics.map((page: any) => (
+              <Cell key={`cell-${page.type}`} fill={page.color} />
+            ))}
+          </Pie>
+          <Tooltip />
+        </PieChart>
+      </ResponsiveContainer>
     </div>
   );
 }

@@ -6,7 +6,10 @@ type AddFacebookPageProps = {
   setIsOpen: (isOpen: boolean) => void;
 };
 
-function AddFacebookPage({ isOpen, setIsOpen }: AddFacebookPageProps) {
+function AddFacebookPage({
+  isOpen,
+  setIsOpen,
+}: Readonly<AddFacebookPageProps>) {
   const [title, setTitle] = useState("");
   const disabled = !title.trim();
   const addPage = useAddPage();

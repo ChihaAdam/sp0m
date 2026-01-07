@@ -5,7 +5,7 @@ import Aside from "./aside";
 import Navbar from "../../navbar/navbar";
 import UserCard from "./user-card";
 function MainDashboardPage() {
-  const [active, isActive] = useState(true);
+  const [active, setActive] = useState(true);
   return (
     <main className="flex flex-col  min-h-screen">
       <Navbar>
@@ -13,8 +13,8 @@ function MainDashboardPage() {
       </Navbar>
       <div className="flex gap-4 h-full flex-1 ">
         <div className="flex-0 flex gap-4 items-start">
-          <Aside active={active} setActive={isActive} />
-          <button onClick={() => isActive(!active)} className="py-4">
+          <Aside active={active} setActive={setActive} />
+          <button onClick={() => setActive(!active)} className="py-4">
             {active ? <SidebarCloseIcon /> : <SidebarIcon />}
           </button>
         </div>

@@ -29,6 +29,7 @@ function Avatar() {
             key={avatar.name}
             src={avatar.url}
             alt={avatar.name}
+            role="button"
             className={`w-16 h-16 border object-cover bg-black/20 rounded-full cursor-pointer hover:scale-110 transition-all duration-300 ${
               currentAvatarNumber === Number(avatar.name)
                 ? "scale-110  border-black dark:border-white"

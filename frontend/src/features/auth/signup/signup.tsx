@@ -4,7 +4,7 @@ import { apiWithCredentials } from "../../../shared/lib/axiosInstance";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { REGEX_EMAIL } from "../../../../../constants.mjs";
-import Error from "../error";
+import ErrorComponent from "../error-component";
 const schema = z.object({
   username: z.string().min(4).max(16),
   email: z.string().regex(REGEX_EMAIL),
@@ -45,7 +45,7 @@ function Signup() {
         {...register("username", { required: "Username is required" })}
         className="w-full p-2 border border-gray-300 rounded"
       />
-      <Error message={errors?.username?.message} />
+      <ErrorComponent message={errors?.username?.message} />
       <label htmlFor="email">Email:</label>
       <input
         type="email"
@@ -53,7 +53,7 @@ function Signup() {
         {...register("email", { required: "Email is required" })}
         className="w-full p-2 border border-gray-300 rounded"
       />
-      <Error message={errors?.email?.message} />
+      <ErrorComponent message={errors?.email?.message} />
       <label htmlFor="password">Password: </label>
       <input
         type="password"
@@ -61,7 +61,7 @@ function Signup() {
         {...register("password", { required: "Password is required" })}
         className="w-full p-2 border border-gray-300 rounded"
       />
-      <Error message={errors?.password?.message} />
+      <ErrorComponent message={errors?.password?.message} />
       <button
         type="submit"
         className="bg-gradiant text-white text-xl font-bold p-2 rounded-lg disabled:contrast-50 disabled:cursor-not-allowed"
@@ -75,7 +75,7 @@ function Signup() {
       >
         Already have an account? login!
       </Link>
-      <Error message={serverError} />
+      <ErrorComponent message={serverError} />
     </form>
   );
 }

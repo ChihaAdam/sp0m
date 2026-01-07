@@ -1,7 +1,11 @@
-import { createContext, useContext, useLayoutEffect } from "react";
+import {
+  createContext,
+  useContext,
+  useLayoutEffect,
+  useState,
+  useEffect,
+} from "react";
 import { refresh } from "./refresh.ts";
-import { useState } from "react";
-import { useEffect } from "react";
 import Loading from "../../shared/components/ui/loading.tsx";
 import { api } from "../../shared/lib/axiosInstance.ts";
 type AuthStore = {

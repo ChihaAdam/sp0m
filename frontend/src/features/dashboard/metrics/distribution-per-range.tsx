@@ -1,4 +1,12 @@
-import { Bar, BarChart, CartesianGrid, Tooltip, XAxis, YAxis } from "recharts";
+import {
+  Bar,
+  BarChart,
+  CartesianGrid,
+  Tooltip,
+  XAxis,
+  YAxis,
+  ResponsiveContainer,
+} from "recharts";
 import { useMetrics } from "./useMetrics";
 export default function DistributionPerRange() {
   /*no need for loading state because it will be fetched in the parent component and when calling
@@ -31,27 +39,28 @@ export default function DistributionPerRange() {
     }
   });
   return (
-    <div className="bg-white dark:bg-zinc-800 rounded shadow-lg p-4 box-content">
+    <div className="bg-white dark:bg-zinc-800 rounded shadow-lg p-4 box-content w-1/2 max-md:w-full flex flex-col items-center justify-center">
       <h3 className="text-center my-2 text-xl font-semibold bg-gradiant text-transparent bg-clip-text">
         distribution per range
       </h3>
-      <BarChart
-        height={300}
-        data={pageMetrics}
-        margin={{
-          top: 5,
-          right: 30,
-          left: 20,
-          bottom: 5,
-        }}
-        responsive
-      >
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="range" />
-        <YAxis />
-        <Tooltip />
-        <Bar dataKey="value" fill="#8884d8" />
-      </BarChart>
+      <ResponsiveContainer width="100%" aspect={2}>
+        <BarChart
+          data={pageMetrics}
+          margin={{
+            top: 5,
+            right: 30,
+            left: 20,
+            bottom: 5,
+          }}
+          responsive
+        >
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis dataKey="range" />
+          <YAxis />
+          <Tooltip />
+          <Bar dataKey="value" fill="#8884d8" />
+        </BarChart>
+      </ResponsiveContainer>
     </div>
   );
 }

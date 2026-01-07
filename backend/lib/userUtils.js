@@ -92,7 +92,6 @@ export const loginUser = async (email, password) => {
     throw err;
   }
   const user = await User.findOne({ email: email });
-  console.log(user);
   if (!user) {
     const err = new Error("email or password is incorrect");
     err.name = "loginError";

@@ -1,7 +1,7 @@
 import { useState } from "react";
-import OTP from "../../../shared/components/ui/otp.tsx";
+import Otp from "../../../shared/components/ui/otp.tsx";
 import useVerification from "./use-verification";
-import Error from "../error";
+import ErrorComponent from "../error-component.tsx";
 
 function Verification() {
   const [otp, setOtp] = useState<string>("");
@@ -14,7 +14,7 @@ function Verification() {
         one step further
       </h2>
       <p>Enter the verification code sent to your email</p>
-      <OTP setValue={setOtp} />
+      <Otp setValue={setOtp} />
       <button
         className="text-2xl font-bold bg-gradiant p-2 rounded-lg text-white w-full disabled:contrast-50 disabled:cursor-not-allowed"
         disabled={invalidInput || loading}
@@ -22,7 +22,7 @@ function Verification() {
       >
         {loading ? "Verifying..." : "Verify"}
       </button>
-      <Error message={error} />
+      <ErrorComponent message={error} />
     </main>
   );
 }

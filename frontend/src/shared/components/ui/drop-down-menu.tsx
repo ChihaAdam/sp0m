@@ -5,7 +5,7 @@ type DropDownMenuProps = {
   isOpen: boolean;
 };
 
-function DropDownMenu({ children, isOpen }: DropDownMenuProps) {
+function DropDownMenu({ children, isOpen }: Readonly<DropDownMenuProps>) {
   return (
     <AnimatePresence>
       {isOpen && (
